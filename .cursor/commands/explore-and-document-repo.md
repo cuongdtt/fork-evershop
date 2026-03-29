@@ -37,4 +37,6 @@ Use simple shapes and short labels; prefer accuracy over detail.
 - Do not invent features; ground every claim in the code or checked-in docs (`README`, `AGENTS.md`, etc.).
 - Keep the doc maintainable: note “source of truth” files for each topic.
 
-Start by listing what you will open first (entry configs, `package.json` workspace layout, main app bootstrap), then execute the exploration and write the final structured document with diagrams.
+Start by listing what you will open first (entry configs, `package.json` workspace layout, main app bootstrap), then execute the exploration.
+
+**Output:** write the result into **`docs/ARCHITECTURE.md`** (replace the `_TBD_` sections and diagram placeholders; set **Last updated** to today’s date). Keep root **`AGENTS.md`** as the canonical contributor checklist; **`docs/ARCHITECTURE.md`** is the fork’s structural map and diagrams.

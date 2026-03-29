@@ -2,6 +2,8 @@
 
 This file is the primary onboarding document for **AI coding agents** and developers working in this repository. It summarizes layout, commands, runtime behavior, and conventions so changes stay aligned with the framework.
 
+For a living structural overview and Mermaid diagrams for this fork, see **`docs/ARCHITECTURE.md`**. Refresh it with the Cursor project command **`/explore-and-document-repo`**.
+
 ## Product snapshot
 
 EverShop is a **GPL-3.0** e-commerce platform: **Node.js**, **Express**, **PostgreSQL**, **GraphQL**, and **React** (17.x in core `package.json`). User-facing install roots use **`config`** (the [`config`](https://github.com/node-config/node-config) package), typically via `config/default.json` at the project root. Library path resolution uses **`process.cwd()`** when `@evershop/evershop` runs from `node_modules`.
