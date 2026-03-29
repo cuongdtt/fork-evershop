@@ -1,0 +1,16 @@
+---
+description: After substantive edits, verify with pnpm lint and pnpm build-fast; fix and retry until green.
+alwaysApply: true
+---
+
+# Post-task verification (EverShop)
+
+Before you consider the job **done** for code changes under this repo (packages, config that affects build, etc.):
+
+1. From the repo root, ensure build inputs exist: if you edited `packages/evershop/src` or `packages/postgres-query-builder/src`, or `dist/` is missing, run `pnpm compile` and `pnpm compile:db`.
+2. Run **`pnpm lint`**, then **`pnpm build-fast`**.
+3. If either fails, fix the reported issues and repeat step 2 (and step 1 if the failure is missing/stale `dist/`). Do not stop at the first failure without attempting a fix and re-run.
+
+Skip this only for **non-code** work (e.g. typo-only docs with no impact on build). For anything touching application code, GraphQL, or build config, treat verification as required.
+
+To run the same flow manually from the palette, use the project command **verify-lint-and-build** (`.cursor/commands/verify-lint-and-build.md`).
