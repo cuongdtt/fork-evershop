@@ -4,9 +4,10 @@ import { getConfig } from './util/getConfig.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const rootPath = __dirname.includes(
+const installedUnderNodeModules = __dirname.includes(
   path.join('node_modules', '@evershop', 'evershop')
-)
+);
+const rootPath = installedUnderNodeModules
   ? process.cwd()
   : path.resolve(__dirname, '..', '..', '..', '..');
 

@@ -11,7 +11,7 @@
     "dev": "node ./packages/evershop/dist/bin/dev/index.js",
     "start": "node ./packages/evershop/dist/bin/start/index.js",
     "build": "node ./packages/evershop/dist/bin/build/index.js",
-    "build-fast": "evershop build -- --skip-minify",
+    "build-fast": "node ./packages/evershop/dist/bin/build/index.js -- --skip-minify",
     "setup": "evershop install",
     "theme:active": "evershop theme:active",
     "theme:twizz": "evershop theme:twizz",
