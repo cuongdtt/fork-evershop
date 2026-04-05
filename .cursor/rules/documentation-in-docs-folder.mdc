@@ -1,0 +1,12 @@
+---
+description: Put project documentation under docs/; only standard root and package README files stay elsewhere.
+alwaysApply: true
+---
+
+# Documentation location
+
+- **Project documentation** (guides, architecture notes, learning materials, runbooks, ADRs, design docs, and similar prose intended for contributors or operators): **create and maintain them under `docs/`** at the repository root. Use `docs/<name>.md` or subfolders such as `docs/<topic>/` when grouping files.
+- **Do not** introduce new standalone documentation `.md` files at the repository root. If you need a new doc, add it under `docs/` (and link to it from `README.md` or `AGENTS.md` when appropriate).
+- **Exceptions** (keep their conventional locations): root `README.md`, `AGENTS.md`, `CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`, `LICENSE`, `.github/` templates, and **`packages/*/README.md`** (or extension package READMEs) for npm and package discovery.
+
+When moving or renaming existing root-level guides into `docs/`, update any links that pointed at the old paths.

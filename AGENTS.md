@@ -4,6 +4,10 @@ This file is the primary onboarding document for **AI coding agents** and develo
 
 For a living structural overview and Mermaid diagrams for this fork, see **`docs/ARCHITECTURE.md`**. Refresh it with the Cursor project command **`/explore-and-document-repo`**.
 
+## Documentation layout
+
+Put **project documentation** (guides, deep dives, runbooks, ADRs, extra architecture notes) under **`docs/`**. Do not add new doc-only `.md` files at the repo root. **Exceptions:** `README.md`, `AGENTS.md`, `CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`, `LICENSE`, material under `.github/`, and `README.md` files inside `packages/*` or extensions (package discovery).
+
 ## Product snapshot
 
 EverShop is a **GPL-3.0** e-commerce platform: **Node.js**, **Express**, **PostgreSQL**, **GraphQL**, and **React** (17.x in core `package.json`). User-facing install roots use **`config`** (the [`config`](https://github.com/node-config/node-config) package), typically via `config/default.json` at the project root. Library path resolution uses **`process.cwd()`** when `@evershop/evershop` runs from `node_modules`.
@@ -12,28 +16,28 @@ Official docs: https://evershop.io/docs/development/getting-started/introduction
 
 ## Monorepo layout
 
-| Path | Role |
-|------|------|
-| `packages/evershop/` | Platform: CLI (`evershop`), Express app, admin + storefront React, GraphQL, all core **modules** |
-| `packages/postgres-query-builder/` | `@evershop/postgres-query-builder` — PostgreSQL query builder (**MIT**), build output in `dist/` |
-| `packages/create-evershop-app/` | CLI to scaffold new EverShop projects (`create-evershop-app`) |
-| `extensions/` | Optional workspace packages for custom extensions (`package.json` lists `extensions/*`; folder may be empty) |
+| Path                               | Role                                                                                                         |
+| ---------------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| `packages/evershop/`               | Platform: CLI (`evershop`), Express app, admin + storefront React, GraphQL, all core **modules**             |
+| `packages/postgres-query-builder/` | `@evershop/postgres-query-builder` — PostgreSQL query builder (**MIT**), build output in `dist/`             |
+| `packages/create-evershop-app/`    | CLI to scaffold new EverShop projects (`create-evershop-app`)                                                |
+| `extensions/`                      | Optional workspace packages for custom extensions (`package.json` lists `extensions/*`; folder may be empty) |
 
 Root `package.json` uses **workspaces**: `packages/*`, `extensions/*`.
 
 ## Commands (use `pnpm` where applicable)
 
-| Script | What it does |
-|--------|----------------|
-| `compile` | SWC: `packages/evershop/src` → `packages/evershop/dist` |
-| `compile:db` | SWC: `packages/postgres-query-builder/src` → `dist` |
-| `build` | Runs `dist/bin/build` (needs **`compile` first**) |
-| `dev` | Dev server; spawns child with **`ALLOW_CONFIG_MUTATIONS=true`** |
-| `start` | Production server (`NODE_ENV=production` via start env) |
-| `setup` | `evershop install` — DB migrations / schema |
-| `test` | Jest (root `jest.config.js`); **`ALLOW_CONFIG_MUTATIONS=true`**, `NODE_OPTIONS=--experimental-vm-modules` |
-| `lint` | ESLint with `--fix` on `./packages` |
-| `build-fast` | Build with `--skip-minify` |
+| Script       | What it does                                                                                              |
+| ------------ | --------------------------------------------------------------------------------------------------------- |
+| `compile`    | SWC: `packages/evershop/src` → `packages/evershop/dist`                                                   |
+| `compile:db` | SWC: `packages/postgres-query-builder/src` → `dist`                                                       |
+| `build`      | Runs `dist/bin/build` (needs **`compile` first**)                                                         |
+| `dev`        | Dev server; spawns child with **`ALLOW_CONFIG_MUTATIONS=true`**                                           |
+| `start`      | Production server (`NODE_ENV=production` via start env)                                                   |
+| `setup`      | `evershop install` — DB migrations / schema                                                               |
+| `test`       | Jest (root `jest.config.js`); **`ALLOW_CONFIG_MUTATIONS=true`**, `NODE_OPTIONS=--experimental-vm-modules` |
+| `lint`       | ESLint with `--fix` on `./packages`                                                                       |
+| `build-fast` | Build with `--skip-minify`                                                                                |
 
 **CI** (`.github/workflows/build_test.yml`): PRs; Node **20** and **22**; `npm install`, `compile`, `compile:db`, `test`. **Lint is not in CI.**
 
@@ -77,15 +81,15 @@ Core module list is **explicit** in `packages/evershop/src/bin/lib/loadModules.j
 
 Core and extensions share the same layout patterns under `.../modules/<name>/` (core) or extension `dist/` (or `src` in dev for some tooling):
 
-| Area | Purpose |
-|------|--------|
-| `bootstrap.js` | Default export invoked at startup; register services, filters, etc. |
-| `graphql/types/` | `*.graphql`, `*.resolvers.js` (and `.admin.*` variants) |
-| `api/<handler>/` | `route.json`, handlers, optional `payloadSchema.json`, bracket middleware files |
-| `pages/admin/`, `pages/frontStore/` | `route.json` + React entry/components |
-| `migration/` | DB migrations |
-| `services/` | Domain logic |
-| `subscribers/<eventName>/` | Async handlers for events (see below) |
+| Area                                | Purpose                                                                         |
+| ----------------------------------- | ------------------------------------------------------------------------------- |
+| `bootstrap.js`                      | Default export invoked at startup; register services, filters, etc.             |
+| `graphql/types/`                    | `*.graphql`, `*.resolvers.js` (and `.admin.*` variants)                         |
+| `api/<handler>/`                    | `route.json`, handlers, optional `payloadSchema.json`, bracket middleware files |
+| `pages/admin/`, `pages/frontStore/` | `route.json` + React entry/components                                           |
+| `migration/`                        | DB migrations                                                                   |
+| `services/`                         | Domain logic                                                                    |
+| `subscribers/<eventName>/`          | Async handlers for events (see below)                                           |
 
 ### GraphQL schema
 
