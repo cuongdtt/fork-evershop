@@ -16,6 +16,8 @@ EverShop is a **GPL-3.0** e-commerce platform: **Node.js**, **Express**, **Postg
 
 Upstream product docs: [Getting started](https://evershop.io/docs/development/getting-started/introduction).
 
+**Core module deep dives** (commerce and operations, bootstrap/processors, gaps): [`docs/core-modules/README.md`](./core-modules/README.md).
+
 ---
 
 ## Repository map
