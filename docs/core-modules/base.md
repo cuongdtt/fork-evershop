@@ -14,14 +14,14 @@ The **base** module is the cross-cutting foundation: it loads translation CSVs, 
 
 ## Framework implementation
 
-| Mechanism | Location / pattern |
-|-----------|-------------------|
-| Bootstrap | `modules/base/bootstrap.js` — `addProcessor('configurationSchema', ...)`, `loadCsv()` |
-| Registry processors | `lib/util/registry.js` (`addProcessor`) |
-| Global API middleware | `modules/base/api/global/*.ts` and `*.js` |
-| Global page middleware | `modules/base/pages/global/*` |
-| Services | `getAjv.js`, `escapePayload.ts`, `notifications.js`, `secret.js`, `markSkipEscape.ts` |
-| Migrations | `migration/Version-*.js` |
+| Mechanism              | Location / pattern                                                                    |
+| ---------------------- | ------------------------------------------------------------------------------------- |
+| Bootstrap              | `modules/base/bootstrap.js` — `addProcessor('configurationSchema', ...)`, `loadCsv()` |
+| Registry processors    | `lib/util/registry.js` (`addProcessor`)                                               |
+| Global API middleware  | `modules/base/api/global/*.ts` and `*.js`                                             |
+| Global page middleware | `modules/base/pages/global/*`                                                         |
+| Services               | `getAjv.js`, `escapePayload.ts`, `notifications.js`, `secret.js`, `markSkipEscape.ts` |
+| Migrations             | `migration/Version-*.js`                                                              |
 
 Other modules merge additional keys into the same `configurationSchema` processor chain; `config` (node-config) is validated against the merged schema.
 
@@ -29,34 +29,34 @@ Other modules merge additional keys into the same `configurationSchema` processo
 
 No dedicated `route.json` endpoints. `base` contributes only **global middleware** (applied to every API/page request):
 
-| Middleware | Chain position | Role |
-|-----------|---------------|------|
-| `[context]` | API + pages | Attaches request context |
-| `[auth]payloadValidate` | API | JSON Schema validation of request body |
-| `[payloadValidate]escapeHtml` | API | HTML-escape payloads to prevent XSS |
-| `[apiResponse]apiErrorHandler` | API | Structured error responses |
-| `[auth]notFound[response]` | Pages | 404 handler |
-| `[response]errorHandler` | Pages | Global page error handler |
+| Middleware                     | Chain position | Role                                   |
+| ------------------------------ | -------------- | -------------------------------------- |
+| `[context]`                    | API + pages    | Attaches request context               |
+| `[auth]payloadValidate`        | API            | JSON Schema validation of request body |
+| `[payloadValidate]escapeHtml`  | API            | HTML-escape payloads to prevent XSS    |
+| `[apiResponse]apiErrorHandler` | API            | Structured error responses             |
+| `[auth]notFound[response]`     | Pages          | 404 handler                            |
+| `[response]errorHandler`       | Pages          | Global page error handler              |
 
 ## Database tables
 
-| Table | Migration | Role |
-|-------|-----------|------|
+| Table   | Migration                                                                    | Role                                      |
+| ------- | ---------------------------------------------------------------------------- | ----------------------------------------- |
 | `event` | `Version-1.0.1` (create), `Version-1.0.2` (alter + index `EVENT_STATUS_IDX`) | Event queue for async subscriber pipeline |
 
 Other modules (customer, catalog, checkout) insert into `event` via triggers but do not own it.
 
 ## GraphQL types
 
-| Type | File | Scope | Query fields |
-|------|------|-------|-------------|
-| `Country` | `Country.graphql` | Shared | `countries`, `allowedCountries` |
-| `Currency` | `Currency.graphql` | Shared | `currencies` |
-| `DateTime` | `DateTime.graphql` | Shared | *(scalar/type only)* |
-| `Province` | `Province.graphql` | Shared | `provinces` |
-| `Timezone` | `Timezone.graphql` | Shared | `timezones` |
-| `Url` (+input `UrlParam`) | `Url.graphql` | Shared | `url`, `version` |
-| `Route` | `Route.admin.graphql` | Admin only | `routes` |
+| Type                      | File                  | Scope      | Query fields                    |
+| ------------------------- | --------------------- | ---------- | ------------------------------- |
+| `Country`                 | `Country.graphql`     | Shared     | `countries`, `allowedCountries` |
+| `Currency`                | `Currency.graphql`    | Shared     | `currencies`                    |
+| `DateTime`                | `DateTime.graphql`    | Shared     | *(scalar/type only)*            |
+| `Province`                | `Province.graphql`    | Shared     | `provinces`                     |
+| `Timezone`                | `Timezone.graphql`    | Shared     | `timezones`                     |
+| `Url` (+input `UrlParam`) | `Url.graphql`         | Shared     | `url`, `version`                |
+| `Route`                   | `Route.admin.graphql` | Admin only | `routes`                        |
 
 ## User flows
 

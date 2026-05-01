@@ -1,0 +1,1963 @@
+route {
+  id: 'refreshUserToken',
+  method: [ 'POST' ],
+  path: '/api/user/token/refresh',
+  payloadSchema: {
+    type: 'object',
+    properties: { refreshToken: [Object] },
+    required: [ 'refreshToken' ],
+    errorMessage: { required: [Object] }
+  },
+  access: 'public',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/auth/api/refreshUserToken',
+  name: 'refreshUserToken'
+}
+route {
+  id: 'addMineCartItem',
+  method: [ 'POST' ],
+  path: '/api/cart/mine/items',
+  payloadSchema: {
+    type: 'object',
+    properties: { sku: [Object], qty: [Object] },
+    required: [ 'sku', 'qty' ],
+    additionalProperties: true,
+    errorMessage: { properties: [Object] }
+  },
+  access: 'public',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/checkout/api/addMineCartItem',
+  name: 'addMineCartItem'
+}
+route {
+  id: 'refreshCustomerToken',
+  method: [ 'POST' ],
+  path: '/api/customer/token/refresh',
+  payloadSchema: {
+    type: 'object',
+    properties: { refreshToken: [Object] },
+    required: [ 'refreshToken' ],
+    errorMessage: { required: [Object] }
+  },
+  access: 'public',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/customer/api/refreshCustomerToken',
+  name: 'refreshCustomerToken'
+}
+route {
+  id: 'paypalCaptureAuthorizedPayment',
+  method: [ 'POST' ],
+  path: '/api/paypal/authorizations/capture',
+  payloadSchema: {
+    type: 'object',
+    properties: { order_id: [Object] },
+    required: [ 'order_id' ],
+    additionalProperties: true
+  },
+  access: 'public',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/paypal/api/paypalCaptureAuthorizedPayment',
+  name: 'paypalCaptureAuthorizedPayment'
+}
+route {
+  id: 'capturePaymentIntent',
+  method: [ 'POST' ],
+  path: '/api/stripe/paymentIntents/capture',
+  payloadSchema: {
+    type: 'object',
+    properties: { order_id: [Object] },
+    required: [ 'order_id' ],
+    additionalProperties: true,
+    errorMessage: { properties: [Object] }
+  },
+  access: 'private',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/stripe/api/capturePaymentIntent',
+  name: 'capturePaymentIntent'
+}
+route {
+  id: 'refundPaymentIntent',
+  method: [ 'POST' ],
+  path: '/api/stripe/paymentIntents/refund',
+  payloadSchema: {
+    type: 'object',
+    properties: { order_id: [Object], amount: [Object] },
+    required: [ 'order_id' ],
+    additionalProperties: true,
+    errorMessage: { properties: [Object] }
+  },
+  access: 'private',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/stripe/api/refundPaymentIntent',
+  name: 'refundPaymentIntent'
+}
+route {
+  id: 'adminLoginJson',
+  method: [ 'POST' ],
+  path: '/admin/user/login',
+  isAdmin: true,
+  isApi: false,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/auth/pages/admin/adminLoginJson',
+  name: 'Admin User Login'
+}
+route {
+  id: 'adminLogoutJson',
+  method: [ 'GET', 'POST' ],
+  path: '/admin/user/logout',
+  isAdmin: true,
+  isApi: false,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/auth/pages/admin/adminLogoutJson',
+  name: 'adminLogoutJson'
+}
+route {
+  id: 'getUserToken',
+  method: [ 'POST' ],
+  path: '/api/user/tokens',
+  payloadSchema: {
+    type: 'object',
+    properties: { email: [Object], password: [Object], full_name: [Object] },
+    additionalProperties: true
+  },
+  access: 'public',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/auth/api/getUserToken',
+  name: 'getUserToken'
+}
+route {
+  id: 'attributeNew',
+  method: [ 'GET' ],
+  path: '/admin/attributes/new',
+  isAdmin: true,
+  isApi: false,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/catalog/pages/admin/attributeNew',
+  name: 'attributeNew'
+}
+route {
+  id: 'categoryNew',
+  method: [ 'GET' ],
+  path: '/admin/categories/new',
+  isAdmin: true,
+  isApi: false,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/catalog/pages/admin/categoryNew',
+  name: 'categoryNew'
+}
+route {
+  id: 'collectionNew',
+  method: [ 'GET' ],
+  path: '/admin/collections/new',
+  isAdmin: true,
+  isApi: false,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/catalog/pages/admin/collectionNew',
+  name: 'collectionNew'
+}
+route {
+  id: 'productNew',
+  method: [ 'GET' ],
+  path: '/admin/products/new',
+  isAdmin: true,
+  isApi: false,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/catalog/pages/admin/productNew',
+  name: 'productNew'
+}
+route {
+  id: 'shippingSetting',
+  method: [ 'GET' ],
+  path: '/admin/setting/shipping',
+  isAdmin: true,
+  isApi: false,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/checkout/pages/admin/shippingSetting',
+  name: 'shippingSetting'
+}
+route {
+  id: 'adminStaticAsset',
+  method: [ 'GET' ],
+  path: '/admin/assets/*',
+  isAdmin: true,
+  isApi: false,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/cms/pages/admin/adminStaticAsset',
+  name: 'adminStaticAsset'
+}
+route {
+  id: 'cmsPageNew',
+  method: [ 'GET' ],
+  path: '/admin/pages/new',
+  isAdmin: true,
+  isApi: false,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/cms/pages/admin/cmsPageNew',
+  name: 'cmsPageNew'
+}
+route {
+  id: 'fileBrowser',
+  method: [ 'GET' ],
+  path: '/api/files/*',
+  payloadSchema: null,
+  access: 'private',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/cms/api/fileBrowser',
+  name: 'fileBrowser'
+}
+route {
+  id: 'fileDelete',
+  method: [ 'DELETE' ],
+  path: '/api/files/*',
+  payloadSchema: null,
+  access: 'private',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/cms/api/fileDelete',
+  name: 'fileDelete'
+}
+route {
+  id: 'fileUpload',
+  method: [ 'POST' ],
+  path: '/api/files/*',
+  payloadSchema: null,
+  access: 'private',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/cms/api/fileUpload',
+  name: 'fileUpload'
+}
+route {
+  id: 'imageUpload',
+  method: [ 'POST' ],
+  path: '/api/images/*',
+  payloadSchema: null,
+  access: 'private',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/cms/api/imageUpload',
+  name: 'imageUpload'
+}
+route {
+  id: 'codCapturePayment',
+  method: [ 'POST' ],
+  path: '/api/cod/captures',
+  payloadSchema: {
+    type: 'object',
+    properties: { order_id: [Object] },
+    required: [ 'order_id' ],
+    additionalProperties: true
+  },
+  access: 'private',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/cod/api/codCapturePayment',
+  name: 'codCapturePayment'
+}
+route {
+  id: 'getCustomerToken',
+  method: [ 'POST' ],
+  path: '/api/customer/tokens',
+  payloadSchema: {
+    type: 'object',
+    properties: { email: [Object], password: [Object] },
+    required: [ 'email', 'password' ],
+    errorMessage: { required: [Object] }
+  },
+  access: 'public',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/customer/api/getCustomerToken',
+  name: 'getCustomerToken'
+}
+route {
+  id: 'resetPassword',
+  method: [ 'POST' ],
+  path: '/api/customers/reset-password',
+  payloadSchema: {
+    type: 'object',
+    properties: { email: [Object] },
+    required: [ 'email' ],
+    additionalProperties: true
+  },
+  access: 'public',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/customer/api/resetPassword',
+  name: 'resetPassword'
+}
+route {
+  id: 'updatePassword',
+  method: [ 'POST' ],
+  path: '/api/customers/password',
+  payloadSchema: {
+    type: 'object',
+    properties: { password: [Object], token: [Object] },
+    required: [ 'password', 'token' ],
+    additionalProperties: true
+  },
+  access: 'public',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/customer/api/updatePassword',
+  name: 'updatePassword'
+}
+route {
+  id: 'adminGraphql',
+  method: [ 'GET', 'POST' ],
+  path: '/api/admin/graphql',
+  payloadSchema: null,
+  access: 'private',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/graphql/api/adminGraphql',
+  name: 'adminGraphql'
+}
+route {
+  id: 'paypalAuthorizePayment',
+  method: [ 'POST' ],
+  path: '/api/paypal/authorizedTransactions',
+  payloadSchema: {
+    type: 'object',
+    properties: { order_id: [Object] },
+    required: [ 'order_id' ],
+    additionalProperties: true
+  },
+  access: 'public',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/paypal/api/paypalAuthorizePayment',
+  name: 'paypalAuthorizePayment'
+}
+route {
+  id: 'paypalCapturePayment',
+  method: [ 'POST' ],
+  path: '/api/paypal/captureTransactions',
+  payloadSchema: {
+    type: 'object',
+    properties: { order_id: [Object] },
+    required: [ 'order_id' ],
+    additionalProperties: true
+  },
+  access: 'public',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/paypal/api/paypalCapturePayment',
+  name: 'paypalCapturePayment'
+}
+route {
+  id: 'paypalCreateOrder',
+  method: [ 'POST' ],
+  path: '/api/paypal/orders',
+  payloadSchema: {
+    type: 'object',
+    properties: { order_id: [Object] },
+    required: [ 'order_id' ],
+    additionalProperties: true
+  },
+  access: 'public',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/paypal/api/paypalCreateOrder',
+  name: 'paypalCreateOrder'
+}
+route {
+  id: 'couponNew',
+  method: [ 'GET' ],
+  path: '/admin/coupon/new',
+  isAdmin: true,
+  isApi: false,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/promotion/pages/admin/couponNew',
+  name: 'couponNew'
+}
+route {
+  id: 'paymentSetting',
+  method: [ 'GET' ],
+  path: '/admin/setting/payments',
+  isAdmin: true,
+  isApi: false,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/setting/pages/admin/paymentSetting',
+  name: 'paymentSetting'
+}
+route {
+  id: 'storeSetting',
+  method: [ 'GET' ],
+  path: '/admin/setting/store',
+  isAdmin: true,
+  isApi: false,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/setting/pages/admin/storeSetting',
+  name: 'storeSetting'
+}
+route {
+  id: 'createPaymentIntent',
+  method: [ 'POST' ],
+  path: '/api/stripe/paymentIntents',
+  payloadSchema: {
+    type: 'object',
+    properties: { cart_id: [Object], order_id: [Object] },
+    required: [ 'cart_id', 'order_id' ],
+    additionalProperties: true,
+    errorMessage: { properties: [Object] }
+  },
+  access: 'public',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/stripe/api/createPaymentIntent',
+  name: 'createPaymentIntent'
+}
+route {
+  id: 'stripeWebHook',
+  method: [ 'POST' ],
+  path: '/api/stripe/webhook',
+  payloadSchema: null,
+  access: 'public',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/stripe/api/stripeWebHook',
+  name: 'stripeWebHook'
+}
+route {
+  id: 'taxSetting',
+  method: [ 'GET' ],
+  path: '/admin/setting/tax',
+  isAdmin: true,
+  isApi: false,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/tax/pages/admin/taxSetting',
+  name: 'taxSetting'
+}
+route {
+  id: 'createTaxClass',
+  method: [ 'POST' ],
+  path: '/api/tax/classes',
+  payloadSchema: {
+    type: 'object',
+    properties: { name: [Object] },
+    additionalProperties: true,
+    required: [ 'name' ]
+  },
+  access: 'private',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/tax/api/createTaxClass',
+  name: 'createTaxClass'
+}
+route {
+  id: 'adminLogin',
+  method: [ 'GET' ],
+  path: '/admin/login',
+  isAdmin: true,
+  isApi: false,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/auth/pages/admin/adminLogin',
+  name: 'adminLogin'
+}
+route {
+  id: 'attributeGrid',
+  method: [ 'GET' ],
+  path: '/admin/attributes',
+  isAdmin: true,
+  isApi: false,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/catalog/pages/admin/attributeGrid',
+  name: 'attributeGrid'
+}
+route {
+  id: 'categoryGrid',
+  method: [ 'GET' ],
+  path: '/admin/categories',
+  isAdmin: true,
+  isApi: false,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/catalog/pages/admin/categoryGrid',
+  name: 'categoryGrid'
+}
+route {
+  id: 'collectionGrid',
+  method: [ 'GET' ],
+  path: '/admin/collections',
+  isAdmin: true,
+  isApi: false,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/catalog/pages/admin/collectionGrid',
+  name: 'collectionGrid'
+}
+route {
+  id: 'productGrid',
+  method: [ 'GET' ],
+  path: '/admin/products',
+  isAdmin: true,
+  isApi: false,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/catalog/pages/admin/productGrid',
+  name: 'productGrid'
+}
+route {
+  id: 'createAttribute',
+  method: [ 'POST' ],
+  path: '/api/attributes',
+  payloadSchema: {
+    type: 'object',
+    properties: {
+      attribute_name: [Object],
+      attribute_code: [Object],
+      is_required: [Object],
+      display_on_frontend: [Object],
+      sort_order: [Object],
+      is_filterable: [Object],
+      groups: [Object],
+      options: [Object]
+    },
+    required: [
+      'attribute_code',
+      'attribute_name',
+      'type',
+      'is_required',
+      'display_on_frontend',
+      'groups'
+    ],
+    additionalProperties: true
+  },
+  access: 'private',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/catalog/api/createAttribute',
+  name: 'createAttribute'
+}
+route {
+  id: 'createAttributeGroup',
+  method: [ 'POST' ],
+  path: '/api/attributeGroups',
+  payloadSchema: {
+    type: 'object',
+    properties: { group_name: [Object] },
+    required: [ 'group_name' ],
+    additionalProperties: true
+  },
+  access: 'private',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/catalog/api/createAttributeGroup',
+  name: 'createAttributeGroup'
+}
+route {
+  id: 'createCategory',
+  method: [ 'POST' ],
+  path: '/api/categories',
+  payloadSchema: {
+    type: 'object',
+    properties: { description: [Object] },
+    additionalProperties: true
+  },
+  access: 'private',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/catalog/api/createCategory',
+  name: 'createCategory'
+}
+route {
+  id: 'createCollection',
+  method: [ 'POST' ],
+  path: '/api/collections',
+  payloadSchema: {
+    type: 'object',
+    properties: { name: [Object], description: [Object], code: [Object] },
+    additionalProperties: true
+  },
+  access: 'private',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/catalog/api/createCollection',
+  name: 'createCollection'
+}
+route {
+  id: 'createProduct',
+  method: [ 'POST' ],
+  path: '/api/products',
+  payloadSchema: {
+    type: 'object',
+    properties: { description: [Object] },
+    additionalProperties: true
+  },
+  access: 'private',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/catalog/api/createProduct',
+  name: 'createProduct'
+}
+route {
+  id: 'createVariantGroup',
+  method: [ 'POST' ],
+  path: '/api/variantGroups',
+  payloadSchema: {
+    type: 'object',
+    properties: { attribute_codes: [Object], attribute_group_id: [Object] },
+    required: [ 'attribute_codes' ],
+    additionalProperties: true
+  },
+  access: 'private',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/catalog/api/createVariantGroup',
+  name: 'createVariantGroup'
+}
+route {
+  id: 'variantSearch',
+  method: [ 'GET' ],
+  path: '/api/variants',
+  payloadSchema: null,
+  access: 'private',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/catalog/api/variantSearch',
+  name: 'variantSearch'
+}
+route {
+  id: 'createCart',
+  method: [ 'POST' ],
+  path: '/api/carts',
+  payloadSchema: {
+    type: 'object',
+    properties: {
+      customer_full_name: [Object],
+      customer_email: [Object],
+      items: [Object]
+    },
+    required: [ 'items' ],
+    errorMessage: { required: [Object] },
+    additionalProperties: true
+  },
+  access: 'public',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/checkout/api/createCart',
+  name: 'createCart'
+}
+route {
+  id: 'createOrder',
+  method: [ 'POST' ],
+  path: '/api/orders',
+  payloadSchema: {
+    type: 'object',
+    properties: { cart_id: [Object] },
+    required: [ 'cart_id' ],
+    additionalProperties: true,
+    errorMessage: { properties: [Object] }
+  },
+  access: 'public',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/checkout/api/createOrder',
+  name: 'createOrder'
+}
+route {
+  id: 'createShippingMethod',
+  method: [ 'POST' ],
+  path: '/api/shippingMethods',
+  payloadSchema: {
+    type: 'object',
+    properties: { name: [Object] },
+    additionalProperties: true,
+    required: [ 'name' ]
+  },
+  access: 'private',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/checkout/api/createShippingMethod',
+  name: 'createShippingMethod'
+}
+route {
+  id: 'createShippingZone',
+  method: [ 'POST' ],
+  path: '/api/shippingZones',
+  payloadSchema: {
+    type: 'object',
+    properties: { name: [Object], country: [Object], provinces: [Object] },
+    additionalProperties: true,
+    required: [ 'name', 'country' ]
+  },
+  access: 'private',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/checkout/api/createShippingZone',
+  name: 'createShippingZone'
+}
+route {
+  id: 'adminNotFound',
+  method: [ 'GET' ],
+  path: '/admin/notfound',
+  isAdmin: true,
+  isApi: false,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/cms/pages/admin/adminNotFound',
+  name: 'adminNotFound'
+}
+route {
+  id: 'cmsPageGrid',
+  method: [ 'GET' ],
+  path: '/admin/pages',
+  isAdmin: true,
+  isApi: false,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/cms/pages/admin/cmsPageGrid',
+  name: 'cmsPageGrid'
+}
+route {
+  id: 'widgetGrid',
+  method: [ 'GET' ],
+  path: '/admin/widgets',
+  isAdmin: true,
+  isApi: false,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/cms/pages/admin/widgetGrid',
+  name: 'widgetGrid'
+}
+route {
+  id: 'staticAsset',
+  method: [ 'GET' ],
+  path: '/assets/*',
+  payloadSchema: null,
+  access: 'private',
+  isAdmin: false,
+  isApi: false,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/cms/pages/frontStore/staticAsset',
+  name: 'staticAsset'
+}
+route {
+  id: 'createCmsPage',
+  method: [ 'POST' ],
+  path: '/api/pages',
+  payloadSchema: {
+    type: 'object',
+    properties: { content: [Object] },
+    additionalProperties: true
+  },
+  access: 'private',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/cms/api/createCmsPage',
+  name: 'createCmsPage'
+}
+route {
+  id: 'createWidget',
+  method: [ 'POST' ],
+  path: '/api/widgets',
+  payloadSchema: {
+    type: 'object',
+    properties: { area: [Object], route: [Object] },
+    additionalProperties: true
+  },
+  access: 'private',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/cms/api/createWidget',
+  name: 'createWidget'
+}
+route {
+  id: 'folderCreate',
+  method: [ 'POST' ],
+  path: '/api/folders',
+  payloadSchema: {
+    type: 'object',
+    properties: { path: [Object] },
+    required: [ 'path' ],
+    additionalProperties: true
+  },
+  access: 'private',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/cms/api/folderCreate',
+  name: 'folderCreate'
+}
+route {
+  id: 'customerGrid',
+  method: [ 'GET' ],
+  path: '/admin/customers',
+  isAdmin: true,
+  isApi: false,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/customer/pages/admin/customerGrid',
+  name: 'customerGrid'
+}
+route {
+  id: 'customerLoginJson',
+  method: [ 'POST' ],
+  path: '/customer/login',
+  payloadSchema: null,
+  access: 'private',
+  isAdmin: false,
+  isApi: false,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/customer/pages/frontStore/customerLoginJson',
+  name: 'customerLoginJson'
+}
+route {
+  id: 'customerLogoutJson',
+  method: [ 'GET', 'POST' ],
+  path: '/customer/logout',
+  payloadSchema: null,
+  access: 'private',
+  isAdmin: false,
+  isApi: false,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/customer/pages/frontStore/customerLogoutJson',
+  name: 'customerLogoutJson'
+}
+route {
+  id: 'login',
+  method: [ 'GET' ],
+  path: '/account/login',
+  payloadSchema: null,
+  access: 'private',
+  isAdmin: false,
+  isApi: false,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/customer/pages/frontStore/login',
+  name: 'Login page'
+}
+route {
+  id: 'register',
+  method: [ 'GET' ],
+  path: '/account/register',
+  payloadSchema: null,
+  access: 'private',
+  isAdmin: false,
+  isApi: false,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/customer/pages/frontStore/register',
+  name: 'Register page'
+}
+route {
+  id: 'resetPasswordPage',
+  method: [ 'GET' ],
+  path: '/account/reset-password',
+  payloadSchema: null,
+  access: 'private',
+  isAdmin: false,
+  isApi: false,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/customer/pages/frontStore/resetPasswordPage',
+  name: 'Reset password page'
+}
+route {
+  id: 'createCustomer',
+  method: [ 'POST' ],
+  path: '/api/customers',
+  payloadSchema: null,
+  access: 'public',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/customer/api/createCustomer',
+  name: 'createCustomer'
+}
+route {
+  id: 'graphql',
+  method: [ 'GET', 'POST' ],
+  path: '/api/graphql',
+  payloadSchema: null,
+  access: 'public',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/graphql/api/graphql',
+  name: 'graphql'
+}
+route {
+  id: 'orderGrid',
+  method: [ 'GET' ],
+  path: '/admin/orders',
+  isAdmin: true,
+  isApi: false,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/oms/pages/admin/orderGrid',
+  name: 'orderGrid'
+}
+route {
+  id: 'lifetimesales',
+  method: [ 'GET' ],
+  path: '/api/lifetimesales',
+  payloadSchema: null,
+  access: 'private',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/oms/api/lifetimesales',
+  name: 'lifetimesales'
+}
+route {
+  id: 'markDelivered',
+  method: [ 'POST' ],
+  path: '/api/deliveries',
+  payloadSchema: {
+    type: 'object',
+    properties: { order_id: [Object] },
+    additionalProperties: true
+  },
+  access: 'private',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/oms/api/markDelivered',
+  name: 'markDelivered'
+}
+route {
+  id: 'salestatistic',
+  method: [ 'GET' ],
+  path: '/api/salestatistic',
+  payloadSchema: null,
+  access: 'private',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/oms/api/salestatistic',
+  name: 'salestatistic'
+}
+route {
+  id: 'couponGrid',
+  method: [ 'GET' ],
+  path: '/admin/coupons',
+  isAdmin: true,
+  isApi: false,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/promotion/pages/admin/couponGrid',
+  name: 'couponGrid'
+}
+route {
+  id: 'createCoupon',
+  method: [ 'POST' ],
+  path: '/api/coupons',
+  payloadSchema: null,
+  access: 'private',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/promotion/api/createCoupon',
+  name: 'createCoupon'
+}
+route {
+  id: 'saveSetting',
+  method: [ 'POST' ],
+  path: '/api/settings',
+  payloadSchema: null,
+  access: 'private',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/setting/api/saveSetting',
+  name: 'saveSetting'
+}
+route {
+  id: 'stripeReturn',
+  method: [ 'GET' ],
+  path: '/stripe/return',
+  payloadSchema: null,
+  access: 'private',
+  isAdmin: false,
+  isApi: false,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/stripe/pages/frontStore/stripeReturn',
+  name: 'stripeReturn'
+}
+route {
+  id: 'catalogSearch',
+  method: [ 'GET' ],
+  path: '/search',
+  payloadSchema: null,
+  access: 'private',
+  isAdmin: false,
+  isApi: false,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/catalog/pages/frontStore/catalogSearch',
+  name: 'Catalog search page'
+}
+route {
+  id: 'cart',
+  method: [ 'GET' ],
+  path: '/cart',
+  payloadSchema: null,
+  access: 'private',
+  isAdmin: false,
+  isApi: false,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/checkout/pages/frontStore/cart',
+  name: 'Cart page'
+}
+route {
+  id: 'checkout',
+  method: [ 'GET' ],
+  path: '/checkout',
+  payloadSchema: null,
+  access: 'private',
+  isAdmin: false,
+  isApi: false,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/checkout/pages/frontStore/checkout',
+  name: 'Checkout page'
+}
+route {
+  id: 'dashboard',
+  method: [ 'GET' ],
+  path: '/admin',
+  isAdmin: true,
+  isApi: false,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/cms/pages/admin/dashboard',
+  name: 'dashboard'
+}
+route {
+  id: 'homepage',
+  method: [ 'GET' ],
+  path: '/',
+  payloadSchema: null,
+  access: 'private',
+  isAdmin: false,
+  isApi: false,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/cms/pages/frontStore/homepage',
+  name: 'Home Page'
+}
+route {
+  id: 'images',
+  method: [ 'GET' ],
+  path: '/images',
+  payloadSchema: null,
+  access: 'private',
+  isAdmin: false,
+  isApi: false,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/cms/pages/frontStore/images',
+  name: 'images'
+}
+route {
+  id: 'notFound',
+  method: [ 'GET' ],
+  path: '/notfound',
+  payloadSchema: null,
+  access: 'private',
+  isAdmin: false,
+  isApi: false,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/cms/pages/frontStore/notFound',
+  name: 'Not Found'
+}
+route {
+  id: 'account',
+  method: [ 'GET' ],
+  path: '/account',
+  payloadSchema: null,
+  access: 'private',
+  isAdmin: false,
+  isApi: false,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/customer/pages/frontStore/account',
+  name: 'Account page'
+}
+route {
+  id: 'removeMineCartItem',
+  method: [ 'DELETE' ],
+  path: '/api/cart/mine/items/:item_id',
+  payloadSchema: null,
+  access: 'public',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/checkout/api/removeMineCartItem',
+  name: 'removeMineCartItem'
+}
+route {
+  id: 'updateMineCartItemQty',
+  method: [ 'PATCH' ],
+  path: '/api/cart/mine/items/:item_id',
+  payloadSchema: {
+    type: 'object',
+    properties: { action: [Object], qty: [Object] },
+    required: [ 'action', 'qty' ],
+    additionalProperties: true,
+    errorMessage: { properties: [Object] }
+  },
+  access: 'public',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/checkout/api/updateMineCartItemQty',
+  name: 'updateMineCartItemQty'
+}
+route {
+  id: 'createTaxRate',
+  method: [ 'POST' ],
+  path: '/api/tax/classes/:class_id/rates',
+  payloadSchema: {
+    type: 'object',
+    properties: {
+      name: [Object],
+      country: [Object],
+      province: [Object],
+      postcode: [Object],
+      rate: [Object],
+      is_compound: [Object],
+      priority: [Object]
+    },
+    additionalProperties: true,
+    required: [ 'name', 'rate' ],
+    errorMessage: { type: 'Request body must be an object', required: [Object] }
+  },
+  access: 'private',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/tax/api/createTaxRate',
+  name: 'createTaxRate'
+}
+route {
+  id: 'attributeEdit',
+  method: [ 'GET' ],
+  path: '/admin/attributes/edit/:id',
+  isAdmin: true,
+  isApi: false,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/catalog/pages/admin/attributeEdit',
+  name: 'attributeEdit'
+}
+route {
+  id: 'categoryEdit',
+  method: [ 'GET' ],
+  path: '/admin/categories/edit/:id',
+  isAdmin: true,
+  isApi: false,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/catalog/pages/admin/categoryEdit',
+  name: 'categoryEdit'
+}
+route {
+  id: 'collectionEdit',
+  method: [ 'GET' ],
+  path: '/admin/collections/edit/:id',
+  isAdmin: true,
+  isApi: false,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/catalog/pages/admin/collectionEdit',
+  name: 'collectionEdit'
+}
+route {
+  id: 'productEdit',
+  method: [ 'GET' ],
+  path: '/admin/products/edit/:id',
+  isAdmin: true,
+  isApi: false,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/catalog/pages/admin/productEdit',
+  name: 'productEdit'
+}
+route {
+  id: 'addProductToCategory',
+  method: [ 'POST' ],
+  path: '/api/categories/:category_id/products',
+  payloadSchema: {
+    type: 'object',
+    properties: { product_id: [Object] },
+    required: [ 'product_id' ],
+    additionalProperties: true
+  },
+  access: 'private',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/catalog/api/addProductToCategory',
+  name: 'addProductToCategory'
+}
+route {
+  id: 'addProductToCollection',
+  method: [ 'POST' ],
+  path: '/api/collections/:collection_id/products',
+  payloadSchema: {
+    type: 'object',
+    properties: { product_id: [Object] },
+    required: [ 'product_id' ],
+    additionalProperties: true
+  },
+  access: 'private',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/catalog/api/addProductToCollection',
+  name: 'addProductToCollection'
+}
+route {
+  id: 'addVariantItem',
+  method: [ 'POST' ],
+  path: '/api/variantGroups/:id/items',
+  payloadSchema: {
+    type: 'object',
+    properties: { product_id: [Object] },
+    required: [ 'product_id' ],
+    additionalProperties: true
+  },
+  access: 'private',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/catalog/api/addVariantItem',
+  name: 'addVariantItem'
+}
+route {
+  id: 'addCartAddress',
+  method: [ 'POST' ],
+  path: '/api/carts/:cart_id/addresses',
+  payloadSchema: {
+    type: 'object',
+    properties: { address: [Object], type: [Object] },
+    required: [ 'address', 'type' ],
+    additionalProperties: true,
+    errorMessage: { properties: [Object] }
+  },
+  access: 'public',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/checkout/api/addCartAddress',
+  name: 'addCartAddress'
+}
+route {
+  id: 'addCartContactInfo',
+  method: [ 'POST' ],
+  path: '/api/carts/:cart_id/contacts',
+  payloadSchema: {
+    type: 'object',
+    properties: { email: [Object] },
+    required: [ 'email' ],
+    additionalProperties: true,
+    errorMessage: { properties: [Object] }
+  },
+  access: 'public',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/checkout/api/addCartContactInfo',
+  name: 'addCartContactInfo'
+}
+route {
+  id: 'addCartItem',
+  method: [ 'POST' ],
+  path: '/api/cart/:cart_id/items',
+  payloadSchema: {
+    type: 'object',
+    properties: { sku: [Object], qty: [Object] },
+    required: [ 'sku', 'qty' ],
+    additionalProperties: true,
+    errorMessage: { properties: [Object] }
+  },
+  access: 'public',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/checkout/api/addCartItem',
+  name: 'addCartItem'
+}
+route {
+  id: 'addCartPaymentMethod',
+  method: [ 'POST' ],
+  path: '/api/carts/:cart_id/paymentMethods',
+  payloadSchema: {
+    type: 'object',
+    properties: { method_code: [Object] },
+    required: [ 'method_code' ],
+    additionalProperties: true,
+    errorMessage: { properties: [Object] }
+  },
+  access: 'public',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/checkout/api/addCartPaymentMethod',
+  name: 'addCartPaymentMethod'
+}
+route {
+  id: 'addCartShippingMethod',
+  method: [ 'POST' ],
+  path: '/api/carts/:cart_id/shippingMethods',
+  payloadSchema: {
+    type: 'object',
+    properties: { method_code: [Object] },
+    required: [ 'method_code' ],
+    additionalProperties: true,
+    errorMessage: { properties: [Object] }
+  },
+  access: 'public',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/checkout/api/addCartShippingMethod',
+  name: 'addCartShippingMethod'
+}
+route {
+  id: 'addShippingNote',
+  method: [ 'POST' ],
+  path: '/api/carts/:cart_id/shippingNotes',
+  payloadSchema: {
+    type: 'object',
+    properties: { note: [Object] },
+    required: [ 'note' ],
+    additionalProperties: false,
+    errorMessage: { properties: [Object] }
+  },
+  access: 'public',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/checkout/api/addShippingNote',
+  name: 'addShippingNote'
+}
+route {
+  id: 'addShippingZoneMethod',
+  method: [ 'POST' ],
+  path: '/api/shippingZones/:id/methods',
+  payloadSchema: {
+    '$schema': 'http://json-schema.org/draft-07/schema#',
+    type: 'object',
+    properties: {
+      method_id: [Object],
+      cost: [Object],
+      is_enabled: [Object],
+      calculation_type: [Object],
+      calculate_api: [Object],
+      condition_type: [Object],
+      min: [Object],
+      max: [Object],
+      weight_based_cost: [Object],
+      price_based_cost: [Object]
+    },
+    additionalProperties: true,
+    required: [ 'method_id', 'condition_type' ],
+    errorMessage: { required: [Object] },
+    allOf: [ [Object], [Object], [Object], [Object], [Object] ]
+  },
+  access: 'private',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/checkout/api/addShippingZoneMethod',
+  name: 'addShippingZoneMethod'
+}
+route {
+  id: 'cartCheckout',
+  method: [ 'POST' ],
+  path: '/api/carts/:cart_id/checkout',
+  payloadSchema: {
+    type: 'object',
+    properties: { cart_id: [Object] },
+    required: [ 'cart_id' ],
+    additionalProperties: true,
+    errorMessage: { properties: [Object] }
+  },
+  access: 'public',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/checkout/api/cartCheckout',
+  name: 'cartCheckout'
+}
+route {
+  id: 'cmsPageEdit',
+  method: [ 'GET' ],
+  path: '/admin/pages/edit/:id',
+  isAdmin: true,
+  isApi: false,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/cms/pages/admin/cmsPageEdit',
+  name: 'cmsPageEdit'
+}
+route {
+  id: 'widgetEdit',
+  method: [ 'GET' ],
+  path: '/admin/widgets/edit/:id',
+  isAdmin: true,
+  isApi: false,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/cms/pages/admin/widgetEdit',
+  name: 'widgetEdit'
+}
+route {
+  id: 'widgetNew',
+  method: [ 'GET' ],
+  path: '/admin/widgets/new/:type',
+  isAdmin: true,
+  isApi: false,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/cms/pages/admin/widgetNew',
+  name: 'widgetNew'
+}
+route {
+  id: 'customerEdit',
+  method: [ 'GET' ],
+  path: '/admin/customers/edit/:id',
+  isAdmin: true,
+  isApi: false,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/customer/pages/admin/customerEdit',
+  name: 'customerEdit'
+}
+route {
+  id: 'createCustomerAddress',
+  method: [ 'POST' ],
+  path: '/api/customers/:customer_id/addresses',
+  payloadSchema: null,
+  access: 'public',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/customer/api/createCustomerAddress',
+  name: 'createCustomerAddress'
+}
+route {
+  id: 'orderEdit',
+  method: [ 'GET' ],
+  path: '/admin/order/edit/:id',
+  isAdmin: true,
+  isApi: false,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/oms/pages/admin/orderEdit',
+  name: 'orderEdit'
+}
+route {
+  id: 'cancelOrder',
+  method: [ 'POST' ],
+  path: '/api/orders/:id/cancel',
+  payloadSchema: {
+    type: 'object',
+    properties: { reason: [Object] },
+    required: [ 'reason' ],
+    additionalProperties: true,
+    errorMessage: { properties: [Object] }
+  },
+  access: 'private',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/oms/api/cancelOrder',
+  name: 'cancelOrder'
+}
+route {
+  id: 'createShipment',
+  method: [ 'POST' ],
+  path: '/api/orders/:id/shipments',
+  payloadSchema: {
+    type: 'object',
+    properties: { carrier: [Object], tracking_number: [Object] },
+    additionalProperties: true
+  },
+  access: 'private',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/oms/api/createShipment',
+  name: 'createShipment'
+}
+route {
+  id: 'couponEdit',
+  method: [ 'GET' ],
+  path: '/admin/coupon/edit/:id',
+  isAdmin: true,
+  isApi: false,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/promotion/pages/admin/couponEdit',
+  name: 'couponEdit'
+}
+route {
+  id: 'couponApply',
+  method: [ 'POST' ],
+  path: '/api/carts/:cart_id/coupons',
+  payloadSchema: {
+    type: 'object',
+    properties: { coupon: [Object] },
+    required: [ 'coupon' ],
+    additionalProperties: true,
+    errorMessage: { properties: [Object] }
+  },
+  access: 'public',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/promotion/api/couponApply',
+  name: 'couponApply'
+}
+route {
+  id: 'deleteTaxRate',
+  method: [ 'DELETE' ],
+  path: '/api/tax/rates/:id',
+  payloadSchema: null,
+  access: 'private',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/tax/api/deleteTaxRate',
+  name: 'deleteTaxRate'
+}
+route {
+  id: 'updateTaxClass',
+  method: [ 'PATCH' ],
+  path: '/api/tax/classes/:id',
+  payloadSchema: {
+    type: 'object',
+    properties: { name: [Object] },
+    additionalProperties: true,
+    required: [ 'name' ]
+  },
+  access: 'private',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/tax/api/updateTaxClass',
+  name: 'updateTaxClass'
+}
+route {
+  id: 'updateTaxRate',
+  method: [ 'PATCH' ],
+  path: '/api/tax/rates/:id',
+  payloadSchema: {
+    type: 'object',
+    properties: {
+      name: [Object],
+      country: [Object],
+      province: [Object],
+      postcode: [Object],
+      rate: [Object],
+      is_compound: [Object],
+      priority: [Object]
+    },
+    additionalProperties: true,
+    required: [ 'name', 'rate' ],
+    errorMessage: { type: 'Request body must be an object', required: [Object] }
+  },
+  access: 'private',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/tax/api/updateTaxRate',
+  name: 'updateTaxRate'
+}
+route {
+  id: 'deleteAttribute',
+  method: [ 'DELETE' ],
+  path: '/api/attributes/:id',
+  payloadSchema: null,
+  access: 'private',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/catalog/api/deleteAttribute',
+  name: 'deleteAttribute'
+}
+route {
+  id: 'deleteAttributeGroup',
+  method: [ 'DELETE' ],
+  path: '/api/attributeGroups/:id',
+  payloadSchema: null,
+  access: 'private',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/catalog/api/deleteAttributeGroup',
+  name: 'deleteAttributeGroup'
+}
+route {
+  id: 'deleteCategory',
+  method: [ 'DELETE' ],
+  path: '/api/categories/:id',
+  payloadSchema: null,
+  access: 'private',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/catalog/api/deleteCategory',
+  name: 'deleteCategory'
+}
+route {
+  id: 'deleteCollection',
+  method: [ 'DELETE' ],
+  path: '/api/collections/:id',
+  payloadSchema: null,
+  access: 'private',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/catalog/api/deleteCollection',
+  name: 'deleteCollection'
+}
+route {
+  id: 'deleteProduct',
+  method: [ 'DELETE' ],
+  path: '/api/products/:id',
+  payloadSchema: null,
+  access: 'private',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/catalog/api/deleteProduct',
+  name: 'deleteProduct'
+}
+route {
+  id: 'removeProductFromCategory',
+  method: [ 'DELETE' ],
+  path: '/api/categories/:category_id/products/:product_id',
+  payloadSchema: null,
+  access: 'private',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/catalog/api/removeProductFromCategory',
+  name: 'removeProductFromCategory'
+}
+route {
+  id: 'removeProductFromCollection',
+  method: [ 'DELETE' ],
+  path: '/api/collections/:collection_id/products/:product_id',
+  payloadSchema: null,
+  access: 'private',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/catalog/api/removeProductFromCollection',
+  name: 'removeProductFromCollection'
+}
+route {
+  id: 'unlinkVariant',
+  method: [ 'DELETE' ],
+  path: '/api/variants/:id',
+  payloadSchema: null,
+  access: 'private',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/catalog/api/unlinkVariant',
+  name: 'unlinkVariant'
+}
+route {
+  id: 'updateAttribute',
+  method: [ 'PATCH' ],
+  path: '/api/attributes/:id',
+  payloadSchema: null,
+  access: 'private',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/catalog/api/updateAttribute',
+  name: 'updateAttribute'
+}
+route {
+  id: 'updateAttributeGroup',
+  method: [ 'PATCH' ],
+  path: '/api/attributeGroups/:id',
+  payloadSchema: {
+    type: 'object',
+    properties: { group_name: [Object] },
+    required: [ 'group_name' ],
+    additionalProperties: true
+  },
+  access: 'private',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/catalog/api/updateAttributeGroup',
+  name: 'updateAttributeGroup'
+}
+route {
+  id: 'updateCategory',
+  method: [ 'PATCH' ],
+  path: '/api/categories/:id',
+  payloadSchema: {
+    type: 'object',
+    properties: { description: [Object] },
+    additionalProperties: true
+  },
+  access: 'private',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/catalog/api/updateCategory',
+  name: 'updateCategory'
+}
+route {
+  id: 'updateCollection',
+  method: [ 'PATCH' ],
+  path: '/api/collections/:id',
+  payloadSchema: {
+    type: 'object',
+    properties: { name: [Object], description: [Object], code: [Object] },
+    additionalProperties: true
+  },
+  access: 'private',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/catalog/api/updateCollection',
+  name: 'updateCollection'
+}
+route {
+  id: 'updateProduct',
+  method: [ 'PATCH' ],
+  path: '/api/products/:id',
+  payloadSchema: {
+    type: 'object',
+    properties: { description: [Object] },
+    additionalProperties: true
+  },
+  access: 'private',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/catalog/api/updateProduct',
+  name: 'updateProduct'
+}
+route {
+  id: 'checkoutSuccess',
+  method: [ 'GET' ],
+  path: '/checkout/success/:orderId?',
+  payloadSchema: null,
+  access: 'private',
+  isAdmin: false,
+  isApi: false,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/checkout/pages/frontStore/checkoutSuccess',
+  name: 'checkoutSuccess'
+}
+route {
+  id: 'deleteShippingZone',
+  method: [ 'DELETE' ],
+  path: '/api/shippingZones/:id',
+  payloadSchema: null,
+  access: 'private',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/checkout/api/deleteShippingZone',
+  name: 'deleteShippingZone'
+}
+route {
+  id: 'deleteShippingZoneMethod',
+  method: [ 'DELETE' ],
+  path: '/api/shippingZones/:zone_id/methods/:method_id',
+  payloadSchema: null,
+  access: 'private',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/checkout/api/deleteShippingZoneMethod',
+  name: 'deleteShippingZoneMethod'
+}
+route {
+  id: 'removeCartItem',
+  method: [ 'DELETE' ],
+  path: '/api/cart/:cart_id/items/:item_id',
+  payloadSchema: null,
+  access: 'public',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/checkout/api/removeCartItem',
+  name: 'removeCartItem'
+}
+route {
+  id: 'updateCartItemQty',
+  method: [ 'PATCH' ],
+  path: '/api/cart/:cart_id/items/:item_id',
+  payloadSchema: {
+    type: 'object',
+    properties: { action: [Object], qty: [Object] },
+    required: [ 'action', 'qty' ],
+    additionalProperties: true,
+    errorMessage: { properties: [Object] }
+  },
+  access: 'public',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/checkout/api/updateCartItemQty',
+  name: 'updateCartItemQty'
+}
+route {
+  id: 'updateShippingMethod',
+  method: [ 'PATCH' ],
+  path: '/api/shippingMethods/:id',
+  payloadSchema: {
+    type: 'object',
+    properties: { name: [Object] },
+    additionalProperties: true,
+    required: [ 'name' ]
+  },
+  access: 'private',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/checkout/api/updateShippingMethod',
+  name: 'updateShippingMethod'
+}
+route {
+  id: 'updateShippingZone',
+  method: [ 'PATCH' ],
+  path: '/api/shippingZones/:id',
+  payloadSchema: {
+    type: 'object',
+    properties: { name: [Object], country: [Object], provinces: [Object] },
+    additionalProperties: true,
+    required: [ 'name', 'country' ]
+  },
+  access: 'private',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/checkout/api/updateShippingZone',
+  name: 'updateShippingZone'
+}
+route {
+  id: 'updateShippingZoneMethod',
+  method: [ 'PATCH' ],
+  path: '/api/shippingZones/:zone_id/methods/:method_id',
+  payloadSchema: {
+    '$schema': 'http://json-schema.org/draft-07/schema#',
+    type: 'object',
+    properties: {
+      method_id: [Object],
+      cost: [Object],
+      is_enabled: [Object],
+      calculation_type: [Object],
+      price_based_cost: [Object],
+      weight_based_cost: [Object],
+      condition_type: [Object],
+      calculate_api: [Object],
+      min: [Object],
+      max: [Object]
+    },
+    additionalProperties: true,
+    required: [ 'condition_type', 'calculation_type' ],
+    errorMessage: { required: [Object] },
+    allOf: [ [Object], [Object], [Object], [Object], [Object] ]
+  },
+  access: 'private',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/checkout/api/updateShippingZoneMethod',
+  name: 'updateShippingZoneMethod'
+}
+route {
+  id: 'deleteCmsPage',
+  method: [ 'DELETE' ],
+  path: '/api/pages/:id',
+  payloadSchema: null,
+  access: 'private',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/cms/api/deleteCmsPage',
+  name: 'deleteCmsPage'
+}
+route {
+  id: 'deleteWidget',
+  method: [ 'DELETE' ],
+  path: '/api/widgets/:id',
+  payloadSchema: null,
+  access: 'private',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/cms/api/deleteWidget',
+  name: 'deleteWidget'
+}
+route {
+  id: 'updateCmsPage',
+  method: [ 'PATCH' ],
+  path: '/api/pages/:id',
+  payloadSchema: {
+    type: 'object',
+    properties: { content: [Object] },
+    additionalProperties: true
+  },
+  access: 'private',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/cms/api/updateCmsPage',
+  name: 'updateCmsPage'
+}
+route {
+  id: 'updateWidget',
+  method: [ 'PATCH' ],
+  path: '/api/widgets/:id',
+  payloadSchema: {
+    type: 'object',
+    properties: { area: [Object], route: [Object] },
+    additionalProperties: true
+  },
+  access: 'private',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/cms/api/updateWidget',
+  name: 'updateWidget'
+}
+route {
+  id: 'deleteCustomer',
+  method: [ 'DELETE' ],
+  path: '/api/customers/:id',
+  payloadSchema: null,
+  access: 'private',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/customer/api/deleteCustomer',
+  name: 'deleteCustomer'
+}
+route {
+  id: 'deleteCustomerAddress',
+  method: [ 'DELETE' ],
+  path: '/api/customers/:customer_id/addresses/:address_id',
+  payloadSchema: null,
+  access: 'public',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/customer/api/deleteCustomerAddress',
+  name: 'deleteCustomerAddress'
+}
+route {
+  id: 'updateCustomer',
+  method: [ 'PATCH' ],
+  path: '/api/customers/:id',
+  payloadSchema: {
+    type: 'object',
+    properties: { email: [Object], password: [Object], full_name: [Object] },
+    additionalProperties: true
+  },
+  access: 'public',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/customer/api/updateCustomer',
+  name: 'updateCustomer'
+}
+route {
+  id: 'updateCustomerAddress',
+  method: [ 'PATCH' ],
+  path: '/api/customers/:customer_id/addresses/:address_id',
+  payloadSchema: {
+    type: 'object',
+    properties: { email: [Object], password: [Object], full_name: [Object] },
+    additionalProperties: true
+  },
+  access: 'public',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/customer/api/updateCustomerAddress',
+  name: 'updateCustomerAddress'
+}
+route {
+  id: 'updateShipment',
+  method: [ 'PATCH' ],
+  path: '/api/orders/:order_id/shipments/:shipment_id',
+  payloadSchema: {
+    type: 'object',
+    properties: { carrier: [Object], tracking_number: [Object] },
+    additionalProperties: true
+  },
+  access: 'private',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/oms/api/updateShipment',
+  name: 'updateShipment'
+}
+route {
+  id: 'paypalCancel',
+  method: [ 'GET' ],
+  path: '/paypal/cancelling/:order_id',
+  payloadSchema: null,
+  access: 'private',
+  isAdmin: false,
+  isApi: false,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/paypal/pages/frontStore/paypalCancel',
+  name: 'paypalCancel'
+}
+route {
+  id: 'paypalReturn',
+  method: [ 'GET' ],
+  path: '/paypal/proccessing/:order_id',
+  payloadSchema: null,
+  access: 'private',
+  isAdmin: false,
+  isApi: false,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/paypal/pages/frontStore/paypalReturn',
+  name: 'paypalReturn'
+}
+route {
+  id: 'couponRemove',
+  method: [ 'DELETE' ],
+  path: '/api/carts/:cart_id/coupons/:coupon',
+  payloadSchema: null,
+  access: 'public',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/promotion/api/couponRemove',
+  name: 'couponRemove'
+}
+route {
+  id: 'deleteCoupon',
+  method: [ 'DELETE' ],
+  path: '/api/coupons/:id',
+  payloadSchema: null,
+  access: 'private',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/promotion/api/deleteCoupon',
+  name: 'deleteCoupon'
+}
+route {
+  id: 'updateCoupon',
+  method: [ 'PATCH' ],
+  path: '/api/coupons/:id',
+  payloadSchema: null,
+  access: 'private',
+  isAdmin: false,
+  isApi: true,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/promotion/api/updateCoupon',
+  name: 'updateCoupon'
+}
+route {
+  id: 'categoryView',
+  method: [ 'GET' ],
+  path: '/category/:uuid',
+  payloadSchema: null,
+  access: 'private',
+  isAdmin: false,
+  isApi: false,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/catalog/pages/frontStore/categoryView',
+  name: 'Category page'
+}
+route {
+  id: 'productView',
+  method: [ 'GET' ],
+  path: '/product/:uuid',
+  payloadSchema: null,
+  access: 'private',
+  isAdmin: false,
+  isApi: false,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/catalog/pages/frontStore/productView',
+  name: 'Product single page'
+}
+route {
+  id: 'cmsPageView',
+  method: [ 'GET' ],
+  path: '/page/:url_key',
+  payloadSchema: null,
+  access: 'private',
+  isAdmin: false,
+  isApi: false,
+  folder: '/Users/cuongdt/ghq/github.com/cuongdtt/fork-evershop/packages/evershop/dist/modules/cms/pages/frontStore/cmsPageView',
+  name: 'Static Page'
+}

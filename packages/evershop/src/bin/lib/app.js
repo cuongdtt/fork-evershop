@@ -47,6 +47,7 @@ export const createApp = () => {
   addDefaultMiddlewareFuncs(app);
   const routes = getRoutes();
   routes.forEach((route) => {
+    console.log('route', route);
     // app.all(route.path, Handler.middleware());
     route.method.forEach((method) => {
       switch (method.toUpperCase()) {

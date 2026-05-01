@@ -21,40 +21,40 @@
 
 ## Framework implementation
 
-| Mechanism | Location |
-|-----------|----------|
-| Bootstrap / `request` API | `modules/auth/bootstrap.ts` |
-| Login/logout services | `services/loginUserWithEmail.ts`, `logoutUser.ts` |
-| Session naming helpers | `getSessionConfig.ts`, `getAdminSessionCookieName.ts`, `getCookieSecret.ts` |
-| API | `api/global/[context]jwtUserAuth[getCurrentUser].ts`, `api/getUserToken/*`, `api/refreshUserToken/*` |
-| GraphQL | `graphql/types/AdminUser/AdminUser.admin.graphql` + resolvers |
+| Mechanism                 | Location                                                                                             |
+| ------------------------- | ---------------------------------------------------------------------------------------------------- |
+| Bootstrap / `request` API | `modules/auth/bootstrap.ts`                                                                          |
+| Login/logout services     | `services/loginUserWithEmail.ts`, `logoutUser.ts`                                                    |
+| Session naming helpers    | `getSessionConfig.ts`, `getAdminSessionCookieName.ts`, `getCookieSecret.ts`                          |
+| API                       | `api/global/[context]jwtUserAuth[getCurrentUser].ts`, `api/getUserToken/*`, `api/refreshUserToken/*` |
+| GraphQL                   | `graphql/types/AdminUser/AdminUser.admin.graphql` + resolvers                                        |
 
 Customer-facing auth is implemented in the **customer** module; `auth` is intentionally **admin-centric**.
 
 ## HTTP APIs
 
-| Route | Method | Path | Role |
-|-------|--------|------|------|
-| `getUserToken` | POST | `/user/tokens` | Issue JWT for admin user |
-| `refreshUserToken` | POST | `/user/token/refresh` | Refresh admin JWT |
-| `adminLoginJson` | POST | `/user/login` | Admin session login |
-| `adminLogoutJson` | GET, POST | `/user/logout` | Admin session logout |
-| `adminLogin` | GET | `/login` | Admin login page |
+| Route              | Method    | Path                  | Role                     |
+| ------------------ | --------- | --------------------- | ------------------------ |
+| `getUserToken`     | POST      | `/user/tokens`        | Issue JWT for admin user |
+| `refreshUserToken` | POST      | `/user/token/refresh` | Refresh admin JWT        |
+| `adminLoginJson`   | POST      | `/user/login`         | Admin session login      |
+| `adminLogoutJson`  | GET, POST | `/user/logout`        | Admin session logout     |
+| `adminLogin`       | GET       | `/login`              | Admin login page         |
 
 Global middleware in `api/global/`: `[context]jwtUserAuth`, `getCurrentUser`, `demoAccountBlocking`, `auth`.
 
 ## Database tables
 
-| Table | Migration | Role |
-|-------|-----------|------|
-| `admin_user` | `Version-1.0.0` (create) | Admin user credentials and profile |
-| `user_token_secret` | `Version-1.0.0` (create), `Version-1.0.1` (dropped) | Deprecated token secret storage |
-| `session` | `Version-1.0.1` (create, PK on `sid`, index on `expire`) | Express session store (admin + customer) |
+| Table               | Migration                                                | Role                                     |
+| ------------------- | -------------------------------------------------------- | ---------------------------------------- |
+| `admin_user`        | `Version-1.0.0` (create)                                 | Admin user credentials and profile       |
+| `user_token_secret` | `Version-1.0.0` (create), `Version-1.0.1` (dropped)      | Deprecated token secret storage          |
+| `session`           | `Version-1.0.1` (create, PK on `sid`, index on `expire`) | Express session store (admin + customer) |
 
 ## GraphQL types
 
-| Type | File | Scope | Query fields |
-|------|------|-------|-------------|
+| Type                               | File                      | Scope      | Query fields                                  |
+| ---------------------------------- | ------------------------- | ---------- | --------------------------------------------- |
 | `AdminUser`, `AdminUserCollection` | `AdminUser.admin.graphql` | Admin only | `adminUser`, `currentAdminUser`, `adminUsers` |
 
 ## User flows
